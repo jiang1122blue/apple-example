@@ -1,0 +1,146 @@
+@charset "UTF-8";
+/**
+ * css实现高斯模糊效果
+ * @param  {[type]} $backdrop-filter [description]
+ */
+#nav {
+  height: 44px;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  min-width: 1024px;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+#nav .nav-header {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 48px;
+  overflow: hidden;
+}
+#nav .nav-content {
+  margin: 0 auto;
+  max-width: 980px;
+  padding: 0 22px;
+  position: relative;
+  z-index: 2;
+}
+#nav .nav-list {
+  height: 44px;
+  margin: 0 -10px;
+  width: auto;
+  text-align: justify;
+}
+#nav .nav-list::after {
+  content: "";
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
+  width: 100%;
+}
+#nav .nav-item {
+  display: inline-block;
+  position: relative;
+  height: 44px;
+  z-index: 1;
+  vertical-align: top;
+  box-sizing: content-box;
+}
+#nav .nav-menuicon {
+  position: absolute;
+  left: 0;
+  display: none;
+  top: 0;
+  width: 48px;
+}
+#nav .nav-link {
+  height: 44px;
+  line-height: 2.75;
+  font-size: 16px;
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  position: relative;
+  padding: 0 10px;
+  z-index: 1;
+  -moz-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#nav .nav-link:hover {
+  opacity: 0.65;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+  filter: alpha(opacity=65);
+}
+#nav .nav-link-apple {
+  background-image: url("http://www.apple.com/ac/globalnav/2.0/en_US/images/ac-globalnav/globalnav/apple/image_large.svg");
+  background-repeat: no-repeat;
+  background-size: 20px 44px;
+  background-position: center center;
+  width: 20px;
+}
+#nav .nav-link-mac {
+  background-image: url("http://www.apple.com/ac/globalnav/2.0/en_US/images/ac-globalnav/globalnav/links/mac/image_large.svg");
+  background-repeat: no-repeat;
+  background-size: 31px 44px;
+  background-position: center center;
+  background-origin: content-box;
+  background-size: cover;
+  width: 1.9375em;
+  max-width: 52.7px;
+}
+#nav .nav-link-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+
+@media only screen and (max-width: 1044px) {
+  #nav {
+    min-width: 320px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  #nav {
+    max-height: none;
+    -moz-transition: background 0.35s linear, height 0.35s ease-in;
+    -o-transition: background 0.35s linear, height 0.35s ease-in;
+    -webkit-transition: background 0.35s linear, height 0.35s ease-in;
+    transition: background 0.35s linear, height 0.35s ease-in;
+  }
+  #nav .nav-header {
+    display: block;
+  }
+  #nav .nav-content {
+    position: absolute;
+    z-index: 2;
+    top: 48px;
+    left: 0;
+    padding: 0 48px;
+    height: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    overflow-y: auto;
+    visibility: hidden;
+    /* 快速滚动和回弹的效果 */
+    -webkit-overflow-scrolling: touch;
+    -moz-transition: visibility 0s linear 1s;
+    -o-transition: visibility 0s linear 1s;
+    -webkit-transition: visibility 0s linear 1s;
+    transition: visibility 0s linear 1s;
+  }
+}
